@@ -1,8 +1,8 @@
 import { instance } from "config/axios-config"
 
-export const getOnPositionKey = ['repoData']
+export const getOnPositionKey = ['getOnPosition']
 export const getOnPosition = async () => {
-        const { data } = await instance().get(`/search`, { params : { "q": "player", "oq": "position" } })
+        const { data } = await instance().get(`/search`, { params : { "q": "2", "oq": "" } })
     return data;
 }
 
