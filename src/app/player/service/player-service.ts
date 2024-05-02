@@ -43,6 +43,12 @@ export const getOnPositionAndTeamId10 = async () =>{
     return data
 }
 
+export const getPositionAndeRegionKey = ['getPositionAndeRegion']
+export const getPositionAndeRegion = async () =>{
+    const { data } = await instance().get('/search', {params : {c:'player',q:'7', oq:''}});
+    return data
+}
+
 export const getOnCountAllKey = ['getOnCountAll']
 export const getOnCountAll = async () =>{
     const { data } = await instance().get('/search', {params : {c:'player',q:'8', oq:''}});
@@ -76,5 +82,11 @@ export const getOnPositionAndTeamIdAndHeight2 = async () =>{
 export const getOnPositionAndHeightAndTeamIdKey = ['getOnPositionAndHeightAndTeamId']
 export const getOnPositionAndHeightAndTeamId = async () =>{
     const { data } = await instance().get('/search', {params : {c:'player',q:'21', oq:''}});
+    return data
+}
+
+export const getHeightAndTeamIdKey = ['getHeightAndTeamId']
+export const getHeightAndTeamId = async () =>{
+    const { data } = await instance().get('/search', {params : {c:'player',q:'22', oq:''}});
     return data
 }
