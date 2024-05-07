@@ -1,4 +1,4 @@
-import ScheduleList from 'app/schedule/module/schedule-list';
+
 import { NextPage } from 'next';
 
 
@@ -10,6 +10,7 @@ import {
     QueryClientProvider,
     useQuery,
 } from '@tanstack/react-query'
+import ScheduleList from 'app/api/schedule/module/schedule-list';
 
 
 const SchedulePage: NextPage = ({ data }: any) => {

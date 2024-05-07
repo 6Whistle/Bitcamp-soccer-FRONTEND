@@ -9,7 +9,8 @@ export const stadiumNameWithTeam = async () => {
 
 export const stadiumAndTeamAndScheduleKey = ['stadiumAndTeamAndSchedule']
 export const stadiumAndTeamAndSchedule = async () => {
-    const { data } = await instance().get(`/search`, {params: {c: 'stadium', q:'14', oc: 'stadium', oq:''}});
+    const fetchData = {c: 'stadium', q:'14', page:1, size:100, sort:['position', 'asc']}
+    const { data } = await instance().get(`/search`, {params: fetchData, paramsSerializer: {indexes : null, }});
     return data
 }
 

@@ -1,6 +1,7 @@
-import PlayerList from 'app/team/module/team-list';
+
 import { NextPage } from 'next';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
+import PlayerList from 'app/api/team/module/team-list';
 
 const TeamPage: NextPage = ({data}: {data: {title: string}}) => {
   return <PlayerList />;
