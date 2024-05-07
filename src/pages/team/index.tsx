@@ -1,20 +1,23 @@
-import PlayerList from 'app/team/module/team-list';
 import { NextPage } from 'next';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
+import { getTeams, getTeamsKey } from 'app/api/team/service/team-service';
+import TeamList from 'app/api/team/module/team-list';
+import { useEffect } from 'react';
 
-const TeamPage: NextPage = ({data}: {data: {title: string}}) => {
-  return <PlayerList />;
+const TeamPage: NextPage = (props: any) => {
+    useEffect(() => {console.log(props)}, [])
+  return <TeamList />;
 }
 
 export async function getServerSideProps(){
 
     const queryClient = new QueryClient();
-    const result = fetch("https://localhost:8080/api/search")
+    await queryClient.prefetchQuery(getTeamsKey, getTeams)
+    const data:any = queryClient.getQueryData(getTeamsKey)
+    console.log("TEAM-INFO : " + data);
 
     return {
-        props: {
-            data: { title: 'Team List'}
-        }
+        props: { data }
     }
 }
 
