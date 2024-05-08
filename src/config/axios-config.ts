@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from "axios"
 
 
 export const instance = () => {
-    const instance = axios.create({baseURL: process.env.NEXT_PUBLIC_API_URL})
+    const instance = axios.create({baseURL: `${process.env.NEXT_PUBLIC_API_URL}/api`})
     setInterceptor(instance)
     return instance
 }

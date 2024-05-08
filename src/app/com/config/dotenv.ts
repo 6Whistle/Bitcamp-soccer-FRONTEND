@@ -1,3 +1,3 @@
-export default function Api(){
-    return `${ process.env.NEXT_PUBLIC_API_URL}/api`
+export default function API_URL(){
+    return `${process.env.NEXT_PUBLIC_API_URL}/api`
 }

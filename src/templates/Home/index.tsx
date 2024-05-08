@@ -1,6 +1,7 @@
 import { Heading } from 'components/Heading';
 import { instance } from 'config/axios-config';
 import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 function Home() {
   const router = useRouter()
