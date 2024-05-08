@@ -10,7 +10,8 @@ import {
     QueryClientProvider,
     useQuery,
 } from '@tanstack/react-query'
-import { getStadiumNamesByDateRange, getStadiumNamesByDateRangeKey } from 'app/api/schedule/service/schedul-service';
+import { findStadiumNamesByDateRange, findStadiumNamesByDateRangeKey } from 'app/api/schedule/service/schedul-service';
+
 
 
 const SchedulePage: NextPage = ({ data }: any) => {
@@ -21,9 +22,9 @@ export async function getServerSideProps() {
 
     const queryClient = new QueryClient()
 
-    await queryClient.prefetchQuery(getStadiumNamesByDateRangeKey, getStadiumNamesByDateRange)
+    await queryClient.prefetchQuery(findStadiumNamesByDateRangeKey, findStadiumNamesByDateRange)
 
-    const data = queryClient.getQueryData(getStadiumNamesByDateRangeKey)
+    const data = queryClient.getQueryData(findStadiumNamesByDateRangeKey)
 
     console.log('MT-INFO : SchedulPage SSR data is ')
     
