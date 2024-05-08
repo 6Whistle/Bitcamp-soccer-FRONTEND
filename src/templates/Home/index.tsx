@@ -1,12 +1,18 @@
 import { Heading } from 'components/Heading';
 import { instance } from 'config/axios-config';
+import { useRouter } from 'next/router';
 
 function Home() {
 
+  const router = useRouter();
+
   const clickButtonHandler = (e:any) => {
+    router.push('/schedule')
     instance().get(`/${e.target.value}`)
     .then((res:any) => { alert(JSON.stringify(res.data)) })
     .catch((error:any) => { alert(JSON.stringify(error)) })
+   
+  
   }
 
   const question = [

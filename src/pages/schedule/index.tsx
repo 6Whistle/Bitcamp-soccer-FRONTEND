@@ -1,6 +1,6 @@
-import ScheduleList from 'app/schedule/module/schedule-list';
-import { NextPage } from 'next';
+import ScheduleList from 'app/api/schedule/module/schedule-list';
 
+import { NextPage } from 'next';
 
 // export interface Props {
 //     data: { title: string }
@@ -10,6 +10,7 @@ import {
     QueryClientProvider,
     useQuery,
 } from '@tanstack/react-query'
+import { getStadiumNamesByDateRange, getStadiumNamesByDateRangeKey } from 'app/api/schedule/service/schedul-service';
 
 
 const SchedulePage: NextPage = ({ data }: any) => {
@@ -19,14 +20,18 @@ const SchedulePage: NextPage = ({ data }: any) => {
 export async function getServerSideProps() {
 
     const queryClient = new QueryClient()
-    const result = await fetch('https://api.github.com/repos/TanStack/query')
-        .then((res) => res.json())
 
+    await queryClient.prefetchQuery(getStadiumNamesByDateRangeKey, getStadiumNamesByDateRange)
 
+    const data = queryClient.getQueryData(getStadiumNamesByDateRangeKey)
+
+    console.log('MT-INFO : SchedulPage SSR data is ')
+    
+    console.log(JSON.stringify(data))
+   
+   
     return {
-        props: {
-            data: { title: result },
-        },
+        props: { data },
 
     };
 
