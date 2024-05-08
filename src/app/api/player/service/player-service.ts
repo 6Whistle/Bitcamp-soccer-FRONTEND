@@ -2,7 +2,7 @@ import { instance } from "config/axios-config"
 
 export const getOnPositionKey = ['getOnPosition']
 export const getOnPosition = async () => {
-    const fetchData = {c: 'player',q: '2-dsl',page:1,limit:5 ,sort:['position','asc']}
+    const fetchData = {c: 'player',q: '2-dsl',page:1,size:5 ,sort:['position,asc']}
         const { data } = await instance().get(`/search`, { params : fetchData,paramsSerializer:{indexes : null,} })
     return data;
 }

@@ -1,17 +1,16 @@
 import { Heading } from 'components/Heading';
 import { instance } from 'config/axios-config';
 import { useRouter } from 'next/router';
-import { useRouter } from 'next/router';
 
 function Home() {
   const router = useRouter()
 
   const clickButtonHandler = (e:any) => {
-    instance().get(`/search`, {params: {c: 'stadium', q: '11', oc: 'stadium', oq:''}})
-    .then((res:any) => { alert(JSON.stringify(res.data)) })
-    .catch((error:any) => { alert(JSON.stringify(error)) })
+    // instance().get(`/search`, {params: {c: 'stadium', q: '11', oc: 'stadium', oq:''}})
+    // .then((res:any) => { alert(JSON.stringify(res.data)) })
+    // .catch((error:any) => { alert(JSON.stringify(error)) })
 
-    router.push('/stadium')
+    router.push('/player')
 
   }
 
